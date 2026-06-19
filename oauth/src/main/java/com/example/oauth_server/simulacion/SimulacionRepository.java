@@ -1,4 +1,4 @@
-package com.andesfin.simulacion;
+package com.example.oauth_server.simulacion;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

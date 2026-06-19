@@ -1,4 +1,4 @@
-package com.andesfin.simulacion.dto;
+package com.example.oauth_server.simulacion.dto;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

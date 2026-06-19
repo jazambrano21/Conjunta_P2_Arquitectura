@@ -5,7 +5,7 @@ Plataforma de simulación financiera para optimización de inversiones.
 ## Tecnologías
 
 - Java 17
-- Spring Boot 3.2.0
+- Spring Boot 3.5.9
 - PostgreSQL 15
 - Maven
 - Docker
@@ -13,9 +13,9 @@ Plataforma de simulación financiera para optimización de inversiones.
 ## Estructura del Proyecto
 
 ```
-src/main/java/com/andesfin/
-├── AndesfinApplication.java          ← Aplicación principal
-├── config/                            ← Configuraciones
+oauth/src/main/java/com/example/oauth_server/
+├── OauthServerApplication.java       ← Aplicación principal
+├── config/                           ← Configuraciones
 │   └── CorsConfig.java
 ├── usuario/          ← PERSONA A
 │   ├── Usuario.java                  (entidad)
@@ -51,6 +51,7 @@ src/main/java/com/andesfin/
 ### Ejecución con Docker
 
 ```bash
+cd oauth
 docker-compose up -d
 ```
 
@@ -59,6 +60,7 @@ La aplicación estará disponible en `http://localhost:8080`
 ### Ejecución Local
 
 ```bash
+cd oauth
 mvn spring-boot:run
 ```
 

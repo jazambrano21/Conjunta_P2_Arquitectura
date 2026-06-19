@@ -1,8 +1,8 @@
-package com.andesfin.simulacion;
+package com.example.oauth_server.simulacion;
 
-import com.andesfin.simulacion.dto.ProductoSimulacionDTO;
-import com.andesfin.simulacion.dto.SimulacionRequestDTO;
-import com.andesfin.simulacion.dto.SimulacionResponseDTO;
+import com.example.oauth_server.simulacion.dto.ProductoSimulacionDTO;
+import com.example.oauth_server.simulacion.dto.SimulacionRequestDTO;
+import com.example.oauth_server.simulacion.dto.SimulacionResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.andesfin.simulacion;
+package com.example.oauth_server.simulacion;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

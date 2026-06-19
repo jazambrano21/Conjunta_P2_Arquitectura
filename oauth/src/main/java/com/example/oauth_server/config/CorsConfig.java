@@ -1,4 +1,4 @@
-package com.andesfin.config;
+package com.example.oauth_server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

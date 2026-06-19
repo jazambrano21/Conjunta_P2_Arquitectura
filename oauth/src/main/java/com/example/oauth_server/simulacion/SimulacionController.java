@@ -1,7 +1,7 @@
-package com.andesfin.simulacion;
+package com.example.oauth_server.simulacion;
 
-import com.andesfin.simulacion.dto.SimulacionRequestDTO;
-import com.andesfin.simulacion.dto.SimulacionResponseDTO;
+import com.example.oauth_server.simulacion.dto.SimulacionRequestDTO;
+import com.example.oauth_server.simulacion.dto.SimulacionResponseDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
