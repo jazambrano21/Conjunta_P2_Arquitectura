@@ -1,0 +1,50 @@
+# =====================================================================
+# AndesFin - docker-compose
+# Levanta PostgreSQL (con esquema + datos desde init.sql) y la app backend.
+# Ejecutar desde la raiz del repo:  docker compose up --build
+# =====================================================================
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: andesfin-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: andesfin
+      POSTGRES_USER: andesfin
+      POSTGRES_PASSWORD: andesfin123
+    ports:
+      - "5432:5432"
+    volumes:
+      # Solo se ejecuta en el primer arranque (volumen vacio).
+      - ./backend/andesfin/db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - andesfin_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U andesfin -d andesfin"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - andesfin-network
+
+  app:
+    build: ./backend/andesfin
+    container_name: andesfin-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/andesfin
+      SPRING_DATASOURCE_USERNAME: andesfin
+      SPRING_DATASOURCE_PASSWORD: andesfin123
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - andesfin-network
+
+volumes:
+  andesfin_pgdata:
+
+networks:
+  andesfin-network:
+    driver: bridge

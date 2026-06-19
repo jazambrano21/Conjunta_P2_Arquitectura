@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: andesfin
+
+  datasource:
+    # Por defecto apunta a localhost (ejecucion local con `docker compose up db`).
+    # En docker-compose se sobreescribe SPRING_DATASOURCE_URL al host "postgres".
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/andesfin}
+    username: ${SPRING_DATASOURCE_USERNAME:andesfin}
+    password: ${SPRING_DATASOURCE_PASSWORD:andesfin123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    # El esquema y los datos los carga db/init.sql desde Docker.
+    # Hibernate NO crea ni modifica tablas: solo valida que coincidan.
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    open-in-view: false
+    show-sql: true
+
+server:
+  port: ${SERVER_PORT:8080}
