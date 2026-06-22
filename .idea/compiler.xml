@@ -9,9 +9,13 @@
         <module name="oauth" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="andesfin" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="andesfin" options="-parameters" />
       <module name="oauth" options="-parameters" />
     </option>
   </component>
